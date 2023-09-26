@@ -2,14 +2,6 @@
 
 This module will handle authentication for your SharePoint Online/O365 site, allowing you to make straightforward HTTP requests from Python. It extends the commonly used *Requests* module, meaning that returned objects are familliar, easy to work with and well documented. 
 
-## Installation
-
-SharePy can be installed from the Python Package Index, PyPI.
-
-```
-pip install sharepy
-```
-
 ## Initiating a SharePoint session
 
 ```python
@@ -20,6 +12,11 @@ s = sharepy.connect("example.sharepoint.com")
 You will be prompted to enter your username and password, which are used to request a security token from Microsoft. An access cookie and request digest token are then retrieved and saved to properties for later use. The digest token will be refreshed automatically as it expires.
 
 A username and password can also be provided as arguments of the `connect` function, if prompts are not desirable.
+
+## Using the uploader - CLI
+```
+python3 -m sharepy.upload https://mycompany.sharepoint.com/sites/mysite -u mylogin@mycompany.com -p mypassword "/path/to/local/file.txt" "Shared Documents/afolder/file.txt"
+```
 
 ## Making API calls
 
